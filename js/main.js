@@ -59,9 +59,8 @@ btn.addEventListener('click', (event) => {
     /* Let's register a listener (this time we'll use a named function) on the ul element that can respond to clicks on any of its li elements: */
 document.querySelector("ul").addEventListener("click", (event) => {
     console.log(event.target);  /* the target is set to whateever it was clicked that's within the ul element */
+    event.target.style.color = "green"; /* everytime the target is clicked, it turns green */
 });
     /* Importantly, the event object's target property is set to the actual element that was clicked! */
     /* Not only is event delegation more efficient, by it's very design, it's dynamic - as descendants are added, they too will be listened to! */
     /* Without event delegation, you would have to register a listener every time a new element, such as when the comment <li> is added. */
-    /*  */
-    /*  */
