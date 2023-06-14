@@ -27,3 +27,10 @@
             * event-name - the name of the event
             * callback - the function we want executed when the event happens. When called by the JS engine, it will pass an event object as an argument.
             * use-capture - is a boolean and is option. It has to do w/ event phases (none (0), capture (1), target (2), or bubbling (3)) */
+
+// OUR FIRST EVENT LISTENER //
+    /* When we click the Add Comment button, we want to create a new comment w/ the text entered in the input and then clear the input. */
+const btn = document.querySelector('button');
+btn.addEventListener('click', (event) => {
+    console.log(event);
+})
