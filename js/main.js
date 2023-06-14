@@ -43,3 +43,8 @@ btn.addEventListener('click', (event) => {
         + Several ...x and  ...y properties that provide where the click occurred.
         + The target property, which holds a reference to the DOM element that triggered (dispatched) the event.
         + NOTE: JS this keyword within the listener function will be set to the DOM element that addEventListener was called on. */
+
+// EVENT BUBBLING //
+    /* When an event occurs on an element, that event, whether it is listened to on that element or not, bubbles up through the DOM, all the way up to the document object */
+    /* All event listeners registered for the same event, such as click, will be invoked along the path to the document element - unless one of those listeners calls the event object's stopPropagation method (method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. If you want to stop those behaviors, see the preventDefault() method. It also does not prevent propagation to other event-handlers of the current element. If you want to stop those, see stopImmediatePropagation().). */
+    /* When a DOM event fires in your app, it doesn’t just fire once where the event originated; it embarks on a journey of three phases. In short, the event flows from the document’s root to the target (i.e. capture phase), then fires on the event target (target phase), then flows back to the document’s root (bubbling phase). */
