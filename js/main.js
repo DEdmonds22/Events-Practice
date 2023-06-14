@@ -32,7 +32,10 @@
     /* When we click the Add Comment button, we want to create a new comment w/ the text entered in the input and then clear the input. */
 const btn = document.querySelector('button');
 btn.addEventListener('click', (event) => {
-    console.log(event); // clicking the button should log out the event object. check console on webpage
+    const li = document.createElement("li");    /* creates a li element each time the button is pressed */
+    const input = document.querySelector('input');
+    li.textContent = input.value;   /* saves what user puts into the input text box the value of the li */
+    document.querySelector('ul').appendChild(li);   /* adds DOM element to the document. this allows the value of li to be print and attached to the ul tag, creating another li tag in html. */
 })
 
 // THE EVENT OBJECT //
