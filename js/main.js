@@ -36,6 +36,7 @@ btn.addEventListener('click', (event) => {
     const input = document.querySelector('input');
     li.textContent = input.value;   /* saves what user puts into the input text box the value of the li */
     document.querySelector('ul').appendChild(li);   /* adds DOM element to the document. this allows the value of li to be print and attached to the ul tag, creating another li tag in html. */
+    input.value = null; /* after button is clicked, input text box clears. */
 })
 
 // THE EVENT OBJECT //
@@ -48,3 +49,19 @@ btn.addEventListener('click', (event) => {
     /* When an event occurs on an element, that event, whether it is listened to on that element or not, bubbles up through the DOM, all the way up to the document object */
     /* All event listeners registered for the same event, such as click, will be invoked along the path to the document element - unless one of those listeners calls the event object's stopPropagation method (method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. If you want to stop those behaviors, see the preventDefault() method. It also does not prevent propagation to other event-handlers of the current element. If you want to stop those, see stopImmediatePropagation().). */
     /* When a DOM event fires in your app, it doesn’t just fire once where the event originated; it embarks on a journey of three phases. In short, the event flows from the document’s root to the target (i.e. capture phase), then fires on the event target (target phase), then flows back to the document’s root (bubbling phase). */
+
+// EVENT DELEGATION //
+    /* Imagine a web app, like a game perhaps, with lots of elements that need to respond to a click. It's possible there could be tens, hundreds or more of these elements. */
+    /* That would be a lot of listeners, wouldn't it - not very efficient at all. */
+    /* Plus, every time a new element is added, the event listener would also have to be registered! */
+    /* Event bubbling allows us to implement what's known as event delegation. 
+        + Event delegation allows us to register a single event listener that can respond to events triggered by any of its descendants. Much more efficient! */
+    /* Let's register a listener (this time we'll use a named function) on the ul element that can respond to clicks on any of its li elements: */
+document.querySelector("ul").addEventListener("click", (event) => {
+    console.log(event.target);  /* the target is set to whateever it was clicked that's within the ul element */
+});
+    /* Importantly, the event object's target property is set to the actual element that was clicked! */
+    /* Not only is event delegation more efficient, by it's very design, it's dynamic - as descendants are added, they too will be listened to! */
+    /* Without event delegation, you would have to register a listener every time a new element, such as when the comment <li> is added. */
+    /*  */
+    /*  */
