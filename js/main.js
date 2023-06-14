@@ -32,5 +32,11 @@
     /* When we click the Add Comment button, we want to create a new comment w/ the text entered in the input and then clear the input. */
 const btn = document.querySelector('button');
 btn.addEventListener('click', (event) => {
-    console.log(event);
+    console.log(event); // clicking the button should log out the event object. check console on webpage
 })
+
+// THE EVENT OBJECT //
+    /* Examining the event object that was provided as an argument to our event listener reveals lots of useful information about the event. Of special interest are: 
+        + Several ...x and  ...y properties that provide where the click occurred.
+        + The target property, which holds a reference to the DOM element that triggered (dispatched) the event.
+        + NOTE: JS this keyword within the listener function will be set to the DOM element that addEventListener was called on. */
